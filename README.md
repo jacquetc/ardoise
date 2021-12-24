@@ -1,6 +1,5 @@
 # Ardoise: e-paper/e-ink monitor
 
-
 ## Goal:
 
 Create a e-paper/e-ink monitorfor linux. My personal use is a typewriter.
@@ -43,44 +42,53 @@ And connect it to wifi.
 ### BMC2835 library
 Download the latest version of the library, say bcm2835-1.xx.tar.gz [bcm2835](https://www.airspayce.com/mikem/bcm2835/)
 
-
+```bash
 tar zxvf bcm2835-1.xx.tar.gz
 cd bcm2835-1.xx
 ./configure
 make
 sudo make check
 sudo make install
+```
 
 ### Build Ardoise
 
 Install Rust:
 
+```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
 
 open a new terminal or reboot
 
 in ardoise dir:
 
+```
 cargo build --release
-
-copy target/release/ardoise to /usr/local/bin/
-
+sudo copy target/release/ardoise /usr/local/bin/
+```
 
 ### Load at startup
-
 
 copy resources/.xprofile in /home/pi/
 
 Not sure if this works:
-copy resources/ardoise.service in /etc/systemd/system/
+
+```
+sudo copy resources/ardoise.service /etc/systemd/system/
+```
 
 But I'm sure this works:
-copy resources/launch_ardoise.sh to /usr/local/bin/
-chmod +x /usr/local/bin/launch_ardoise.sh
+
+```
+sudo copy resources/launch_ardoise.sh /usr/local/bin/
+sudo chmod +x /usr/local/bin/launch_ardoise.sh
+```
 
 And make it load at startup in LXDE settings.
 
 ### Tip for writers:
+
 Install FocusWriter, make it load at startup in LXDE settings.
 
 Enjoy !
