@@ -1,0 +1,19 @@
+[Unit]
+Description=Ardoise
+After=graphical.target
+Wants=graphical.target
+
+[Service]
+Type=idle
+ExecStart=/bin/sh -c 'DISPLAY=:0 /usr/local/bin/ardoise'
+StandardOutput=append:/home/pi/ardoise.log
+ErrorOutput=append:/home/pi/ardoise_error.log
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=1min
+Nice=0
+User=root
+Group=root
+
+[Install]
+WantedBy=graphical.target
