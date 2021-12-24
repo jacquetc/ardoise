@@ -14,6 +14,8 @@ There is no e-Paper update if there is no movement
 
 I confirm this is working fine, see the photo in resources/
 
+![example](resources/e-paper.JPG)
+
 ## Idea behind
 
 - Screenshoot a linux desktop
